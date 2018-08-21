@@ -11,6 +11,25 @@
   $argv = $cli->getArgv();
   $cli->parseArg($argv);
 
+
+  // Sprawdzam poprawność wprowadzonych parametrów
+  if($cli->getOption() == false)
+  {
+    die("Niepoprawna opcja. Zastosuj csv:simple lub csv:extended");
+  }
+
+  if($cli->getUrl() == false)
+  {
+    die("Niepoprawny adres URL.");
+  }
+
+  if($cli->getDir() == false)
+  {
+    die("Nie moge utworzyc katalogu.");
+  }
+
+
+
   // ustawiam ścieżkę do pliku csv
   $path = $cli->getDir()."/".$cli->getFileName();
 
